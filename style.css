@@ -1,0 +1,165 @@
+*,
+:root {
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+
+}
+
+@font-face {
+    font-family: 'terror';
+    src: url('./assents/fonts/bloodlustexpandital.ttf') format('truetype');
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+main {
+    background-image: linear-gradient(to bottom, #000000a0, #4b05055c);
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto 33px;
+    /* espaçamento do componente -> top,left,bottom,right <- no caso o top e o bottom sao zero e o left e right sao auto */
+    /*border: 1px solid rgb(0, 255, 42);*/
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./assents/img/dbd4.jpg);
+    background-size: 100%;
+}
+
+header h1 {
+    text-align: center;
+    margin-right: 17px;
+    font-family: 'terror';
+    font-size: 103px;
+    color: rgba(255, 1, 1, 0.704);
+}
+
+header h2 {
+    text-align: center;
+    border-bottom: 1px solid red;
+    font-family: 'terror';
+    font-size: 103px;
+    color: rgba(255, 1, 1, 0.704);
+}
+
+#quiz {
+    counter-reset: quiz-perguntas;
+    /*iniciar um contador*/
+}
+
+
+.quiz-item {
+    margin-top: 24px;
+    border: 1px solid red;
+    border-radius: 6px;
+
+    overflow: hidden;
+    /*Evita que o filho transborde, no caso o preenchimento do h3*/
+}
+
+.quiz-item h3 {
+    padding: 16px 20px;
+    /*espaçamentos 16 em cima e baixo e 20 nas laterais*/
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: hsla(0, 85%, 26%, 0.325);
+}
+
+.quiz-item h3::before {
+    counter-increment: quiz-perguntas;
+    /* cada vez que aparecer um h3 ele vai pegar o for e adicionar mais 1*/
+    content: counter(quiz-perguntas);
+
+    background-color: #610c0c88;
+    width: 28px;
+    height: 28px;
+    padding: 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+.quiz-item dl {
+    padding: 20px 24px;
+
+    display: grid;
+    /* Espaçamento entre as opções que seria o dt*/
+    gap: 8px;
+}
+
+.quiz-item dl dt {
+    font-size: 14px;
+    /*tamanho da fonte*/
+    line-height: 24px;
+    /*altura da linha*/
+    letter-spacing: 0;
+    /*Espaço entre as letras*/
+
+    display: flex;
+    /* Posiciona as propriedades lado a lado, no caso o input e o span do html*/
+    align-items: center;
+    /* posicionou os itens no centro*/
+    gap: 8px;
+    /* espaço entre no input e o span*/
+}
+
+input {
+    all: unset;
+    border: 2px solid #0d0000;
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input:checked {
+    border: 2px solid red;
+}
+
+input:checked:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+
+    background-color: rgb(125, 14, 14);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+#acertos {
+
+    background-color: #550909b1;
+
+    text-align: center;
+    /* texto fica centralizado */
+
+    position: fixed;
+    /* texto fica fixado na tela, mas tem que definir em que parte no caso bottom 0 e left 0 */
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    /* largura do componente */
+
+    padding: 9px;
+    /* preenchimento do componente */
+
+}
